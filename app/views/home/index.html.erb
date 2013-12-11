@@ -1,2 +1,27 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>User List</h1>
+<table>
+    <tr>
+	<th>no</th>
+	<th>name</th>
+	<th>age</th>
+	<th>sex</th>
+    </tr>
+<% @user.each do |u|%>
+    <tr>
+	<td><%= @user.id %></td>
+	<td><%= @user.name %></td>
+	<td><%= @user.age %></td>
+	<td><%= @user.sex %></td>
+    </tr>
+<%end%>
+</table>
+
+<%= form_for @user do |f|%>
+name:  <%= f.text_field :name %><br />
+age:  <%= f.text_field :age %><br />
+sex:  <%= f.text_field :sex %><br />
+<%= f.submit %>
+
+<%end%>
+
+    
