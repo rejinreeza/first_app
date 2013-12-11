@@ -7,7 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%flash.each do |k, v|%>
+	<span class=<%=k.to_s%>><%=v%></span>
+<%end%>
+<%if @user.errors.any?%>
+    <ul>
+<%@user.errors.messages.each do |k, v| %>
+    <li><%=k%> <%=v[0]%>
+ </li>
+<%end%>
+</ul>
+<%end%>
 <%= yield %>
 
 </body>

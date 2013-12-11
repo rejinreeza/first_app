@@ -6,21 +6,21 @@
 	<th>age</th>
 	<th>sex</th>
     </tr>
-<% @user.each do |u|%>
+<% @users.each do |u|%>
     <tr>
-	<td><%= @user.id %></td>
-	<td><%= @user.name %></td>
-	<td><%= @user.age %></td>
-	<td><%= @user.sex %></td>
+	<td><%= u.id %></td>
+	<td><%= u.name %></td>
+	<td><%= u.age %></td>
+	<td><%= u.sex %></td>
     </tr>
 <%end%>
 </table>
 
-<%= form_for @user do |f|%>
+<%= form_for @user, :url => home_create_path do |f|%>
 name:  <%= f.text_field :name %><br />
 age:  <%= f.text_field :age %><br />
 sex:  <%= f.text_field :sex %><br />
-<%= f.submit %>
+<%= f.submit 'add user'%>
 
 <%end%>
 
